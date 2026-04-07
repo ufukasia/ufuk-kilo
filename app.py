@@ -73,8 +73,8 @@ def validate_guess(height_guess: int, weight_guess: int) -> Tuple[bool, str]:
     if not 100 <= height_guess <= 999:
         return False, "Boy tahmini 3 basamaklı olmalı. Ufuk ASIL için mikroskobik ya da gökdelen modu kapalı."
 
-    if not 100 <= weight_guess <= 999:
-        return False, "Kilo tahmini 3 basamaklı olmalı. Terazi de bu deneyde üç haneli konuşuyor."
+    if not 10 <= weight_guess <= 999:
+        return False, "Kilo tahmini 2 ya da 3 basamaklı olmalı. Terazi bu defa iki haneli konuşmaya da razı."
 
     return True, ""
 
@@ -278,11 +278,11 @@ def render_guess_form() -> None:
         )
         weight_guess = st.number_input(
             "Kilo tahmini (kg)",
-            min_value=100,
+            min_value=10,
             max_value=999,
-            value=100,
+            value=70,
             step=1,
-            help="Üç basamaklı tam sayı gir: örn. 100",
+            help="İki ya da üç basamaklı tam sayı gir: örn. 70 veya 100",
         )
         submitted = st.form_submit_button("Tahminimi ortalamaya fırlat")
 
